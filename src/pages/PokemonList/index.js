@@ -100,7 +100,6 @@ const PokemonList = ({getName}) => {
     );
   }
 
-  console.log(getName)
   const releasePokemonHandler = () => {
     dispatch(releasePokemon({},
       () => {
