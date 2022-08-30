@@ -28,12 +28,13 @@ const PokemonList = ({getName}) => {
 
   useEffect(() => {
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=28&offset=0')
+      .get('https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0')
       .then(res => {
         res.data.results.forEach(el => {
           axios
           .get(el.url)
           .then(eachEl => {
+            if(eachEl.data.name.includes('nidoran')) return
             setDataList(arrList => [...arrList, {
               name: eachEl.data.name,
               img: eachEl.data.sprites.other['official-artwork'].front_default
@@ -165,7 +166,6 @@ const PokemonList = ({getName}) => {
       </>
     )
   }
-
   const pokemonListPage = () => {
     return (
       <div>
