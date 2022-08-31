@@ -34,7 +34,7 @@ const PokemonList = ({getName}) => {
           axios
           .get(el.url)
           .then(eachEl => {
-            if(eachEl.data.name.includes('nidoran')) return
+            if(eachEl.data.name.includes('-')) return
             setDataList(arrList => [...arrList, {
               name: eachEl.data.name,
               img: eachEl.data.sprites.other['official-artwork'].front_default
